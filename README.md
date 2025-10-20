@@ -24,11 +24,11 @@ Layanan aggregator log berbasis FastAPI yang idempotent dan melakukan deduplikas
 
     ```sh
     # Buat direktori data di host
-    mkdir -p $(pwd)/data
+    mkdir -p (pwd)/data
     
     # Jalankan container dengan volume
     docker run -d -p 8080:8080 \
-      -v $(pwd)/data:/app/data \
+      -v (pwd)/data:/app/data \
       --name my-aggregator \
       uts-aggregator
     ```
