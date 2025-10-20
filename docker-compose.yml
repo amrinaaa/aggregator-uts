@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  aggregator:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: aggregator
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    restart: always
+    networks:
+      - pubsub-network
+
+  publisher:
+    build:
+      context: ./publisher
+      dockerfile: Dockerfile
+    container_name: publisher
+    depends_on:
+      - aggregator
+    restart: on-failure
+    networks:
+      - pubsub-network
+
+# definisi network
+networks:
+  pubsub-network:
+    driver: bridge
