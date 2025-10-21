@@ -12,28 +12,7 @@ Layanan aggregator log berbasis FastAPI yang idempotent dan melakukan deduplikas
 
 ## Cara Menjalankan
 
-### Opsi 1: Docker (Wajib)
-
-1.  **Build Image:**
-    ```sh
-    docker build -t uts-aggregator .
-    ```
-
-2.  **Run Container:**
-    Kita harus me-mount volume agar database SQLite persisten.
-
-    ```sh
-    # Buat direktori data di host
-    mkdir -p (pwd)/data
-    
-    # Jalankan container dengan volume
-    docker run -d -p 8080:8080 \
-      -v  (pwd)/data:/app/data \
-      --name my-aggregator \
-      uts-aggregator
-    ```
-
-### Opsi 2: Docker Compose (Bonus)
+### Docker Compose
 
 Ini akan menjalankan aggregator DAN publisher untuk stress test.
 
@@ -42,7 +21,7 @@ Ini akan menjalankan aggregator DAN publisher untuk stress test.
     docker-compose up --build
     ```
 
-    Anda akan melihat output dari `publisher` yang mengirim 5000 event dan kemudian log dari `aggregator` yang memprosesnya (dan mendeteksi duplikat). `publisher` akan berhenti setelah selesai, tetapi `aggregator` akan tetap berjalan.
+    Dapat melihat output dari `publisher` yang mengirim 5000 event dan kemudian log dari `aggregator` yang memprosesnya (dan mendeteksi duplikat). `publisher` akan berhenti setelah selesai, tetapi `aggregator` akan tetap berjalan.
 
 2.  **Cek Hasil:**
     Setelah publisher selesai, cek stats:
