@@ -28,7 +28,7 @@ Layanan aggregator log berbasis FastAPI yang idempotent dan melakukan deduplikas
     
     # Jalankan container dengan volume
     docker run -d -p 8080:8080 \
-      -v (pwd)/data:/app/data \
+      -v  (pwd)/data:/app/data \
       --name my-aggregator \
       uts-aggregator
     ```
