@@ -23,7 +23,20 @@ Ini akan menjalankan aggregator DAN publisher untuk stress test.
 
     Dapat melihat output dari `publisher` yang mengirim 5000 event dan kemudian log dari `aggregator` yang memprosesnya (dan mendeteksi duplikat). `publisher` akan berhenti setelah selesai, tetapi `aggregator` akan tetap berjalan.
 
-2.  **Cek Hasil:**
+1.  **Build and up Terpisah**
+    ```sh
+    docker-compose build
+    ```
+
+    ```sh
+    docker-compose up aggregator
+    ```
+    
+    ```sh
+    docker-compose up publisher
+    ```
+
+3.  **Cek Hasil:**
     Setelah publisher selesai, cek stats:
     ```sh
     curl http://localhost:8080/stats
@@ -31,7 +44,7 @@ Ini akan menjalankan aggregator DAN publisher untuk stress test.
     Outputnya akan terlihat seperti:
     `{"received":5000,"unique_processed":3750,"duplicate_dropped":1250, ...}`
 
-3.  **Hentikan:**
+4.  **Hentikan:**
     ```sh
     docker-compose down
     ```
