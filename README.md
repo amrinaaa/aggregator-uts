@@ -44,7 +44,7 @@ Ini akan menjalankan aggregator DAN publisher untuk stress test.
     curl http://localhost:8080/stats
     ```
     Outputnya akan terlihat seperti:
-    `{"received":5000,"unique_processed":3750,"duplicate_dropped":1250, ...}`
+    `{"received":5000,"unique_processed":4000,"duplicate_dropped":1000, ...}`
 
 4.  **Hentikan:**
     ```sh
