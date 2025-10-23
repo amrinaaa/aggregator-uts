@@ -1,5 +1,7 @@
 # UTS - Pub-Sub Log Aggregator
 
+Link Youtube : https://youtu.be/X_zqnNscaPg?si=Zm7av2223QZSULxP 
+
 Layanan aggregator log berbasis FastAPI yang idempotent dan melakukan deduplikasi, berjalan di dalam Docker.
 
 ## Fitur

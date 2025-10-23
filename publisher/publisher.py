@@ -41,7 +41,7 @@ def safe_post(url, json, retries=RETRY_LIMIT, delay=RETRY_DELAY):
         try:
             r = requests.post(url, json=json, timeout=10)
             if r.status_code == 200:
-                return True, r.elapsed.total_seconds() * 1000 # Return latency in MS
+                return True, r.elapsed.total_seconds() * 1000
             else:
                 logging.warning(f"Attempt {attempt}: status {r.status_code} - {r.text}")
         except RequestException as e:
